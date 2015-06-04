@@ -2,6 +2,7 @@ class ArticlesController < ApplicationController
   def create 
     @article = Article.new(article_params)
   
+    # return a boolean indicating whethe or not the article was saved 
     @article.save
     redirect_to @article
   end 
