@@ -3,8 +3,11 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
   
     # return a boolean indicating whethe or not the article was saved 
-    @article.save
-    redirect_to @article
+    if @article.save
+      redirect_to @article
+    else 
+      render 'new'
+    end 
   end 
 
   def show 
@@ -12,6 +15,7 @@ class ArticlesController < ApplicationController
   end   
 
   def new 
+    @article = Article.new 
   end 
 
   def index
