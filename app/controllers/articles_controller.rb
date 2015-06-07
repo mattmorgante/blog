@@ -1,4 +1,9 @@
+# you should annotate this 
+# basically scaffolding from scratch 
 class ArticlesController < ApplicationController
+  
+  http_basic_authenticate_with name: 'Matt', password: '12345678', 
+  except: [:index, :show]
   
   def index
     @articles = Article.all
